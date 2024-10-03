@@ -1,31 +1,37 @@
+const buttons = document.querySelectorAll('[role="button"]');
 
-const homeScoreContainer = document.getElementById("home-score")
-const guestScoreContainer = document.getElementById("guest-score")
-const resetScore = document.querySelector(".reset-score")
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        if (button.id.startsWith('add-one')) {
+            incrementScore(button.id, 1);
+        } else if (button.id.startsWith('add-two')) {
+            incrementScore(button.id, 2);
+        } else if (button.id.startsWith('add-three')) {
+            incrementScore(button.id, 3);
+        } else if (button.id === 'reset-score') {
+            resetScores();
+        }
+    });
 
-let homeScore = 0;
-let guestScore = 0;
+    button.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            button.click();
+        }
+    });
+});
 
-function addScores(score, num) {
-    return score + num
-};
-
-document.addEventListener("click", function (e) {
-    let numAdded = parseInt(e.target.innerText);
-
-    if (e.target.classList.contains("add-home")) {
-        homeScore = addScores(homeScore, numAdded);
-        homeScoreContainer.innerText = `${homeScore}`;
-    } else if (e.target.classList.contains("add-guest")) {
-        guestScore = addScores(guestScore, numAdded);
-        guestScoreContainer.innerText = `${guestScore}`
+function incrementScore(buttonId, value) {
+    if (buttonId.includes('home')) {
+        const homeScore = document.getElementById('home-score');
+        homeScore.innerText = parseInt(homeScore.innerText) + value;
+    } else if (buttonId.includes('guest')) {
+        const guestScore = document.getElementById('guest-score');
+        guestScore.innerText = parseInt(guestScore.innerText) + value;
     }
+}
 
-})
-
-resetScore.addEventListener("click", function () {
-    homeScore = 0;
-    guestScore = 0;
-    homeScoreContainer.innerText = `${homeScore}`;
-    guestScoreContainer.innerText = `${guestScore}`;
-})
+function resetScores() {
+    document.getElementById('home-score').innerText = '0';
+    document.getElementById('guest-score').innerText = '0';
+}

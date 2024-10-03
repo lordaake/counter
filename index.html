@@ -1,39 +1,48 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score Tracker</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
     <div class="container">
         <div class="score-container">
             <h3>HOME</h3>
-            <div class="score-div">
-                <p id="home-score" class="score">0</p>
+            <div class="score-div" id="home-score">
+                <p class="score">0</p>
             </div>
             <div class="add-score-container" id="scores-home">
-                <p id="add-one-home" class="add add-home">+1</p>
-                <p id="add-two-home" class="add add-home">+2</p>
-                <p id="add-three-home" class="add add-home">+3</p>
+                <p id="add-one-home" class="add add-home" tabindex="0" role="button" aria-label="Add 1 to Home Score">+1
+                </p>
+                <p id="add-two-home" class="add add-home" tabindex="0" role="button" aria-label="Add 2 to Home Score">+2
+                </p>
+                <p id="add-three-home" class="add add-home" tabindex="0" role="button" aria-label="Add 3 to Home Score">
+                    +3</p>
             </div>
         </div>
 
         <div class="score-container">
             <h3>GUEST</h3>
-            <div class="score-div">
-                <p id="guest-score" class="score">0</p>
+            <div class="score-div" id="guest-score">
+                <p class="score">0</p>
             </div>
             <div class="add-score-container" id="scores-guest">
-                <p id="add-one-guest" class="add add-guest">+1</p>
-                <p id="add-two-guest" class="add add-guest">+2</p>
-                <p id="add-three-guest" class="add add-guest">+3</p>
+                <p id="add-one-guest" class="add add-guest" tabindex="0" role="button"
+                    aria-label="Add 1 to Guest Score">+1</p>
+                <p id="add-two-guest" class="add add-guest" tabindex="0" role="button"
+                    aria-label="Add 2 to Guest Score">+2</p>
+                <p id="add-three-guest" class="add add-guest" tabindex="0" role="button"
+                    aria-label="Add 3 to Guest Score">+3</p>
             </div>
         </div>
 
-        <!-- Reset Button at the bottom -->
         <div class="reset-section">
-            <div class="reset-score">
+            <div class="reset-score" id="reset-score" tabindex="0" role="button" aria-label="Reset All Scores">
                 <p>Reset Score</p>
             </div>
         </div>
